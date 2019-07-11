@@ -1,0 +1,14 @@
+[run]
+branch=True
+source=main,
+omit=
+    *migrations*
+    *admin.py*
+    *factories.py*
+
+[html]
+directory=htmlcov
+
+[report]
+show_missing=True
+exclude_lines=pragma: no cover
