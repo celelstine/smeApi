@@ -102,3 +102,13 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# editor config
+.vscode
+
+# mac os files
+.DS_store
+
+# media files
+staticfiles/
+media/
