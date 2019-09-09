@@ -23,7 +23,7 @@ coverage:
 
 ci_test:
 	pipenv run flake8 .
-	coverage erase
-	coverage run manage.py test --verbosity 2
-	coverage report --fail-under=70 --show-missing
-	coverage html
+	pipenv run coverage erase
+	pipenv run coverage run manage.py test --verbosity 2
+	pipenv run coverage report --fail-under=70 --show-missing
+	pipenv run coverage html
