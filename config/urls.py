@@ -13,11 +13,20 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.urls import path
 from django.conf import settings
 from django.contrib import admin
+from django.urls import include, path
 from django.conf.urls.static import static
+
+from two_factor.admin import AdminSiteOTPRequired
+from two_factor.urls import urlpatterns as tf_urls
+
+from config.views import HealthCheckView
+
+admin.site.__class__ = AdminSiteOTPRequired
 
 urlpatterns = [
     path('only/', admin.site.urls),
+    path('', include(tf_urls)),
+    path('health/', HealthCheckView.as_view(), name='health'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
