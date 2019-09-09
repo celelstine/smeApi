@@ -20,12 +20,10 @@ coverage:
 	coverage report --fail-under=70 --show-missing
 	coverage html
 
-make coverage:
-	pipenv run coverage erase
-	pipenv run coverage run -m py.test --verbosity 2
-	pipenv run coverage report --fail-under=70 --show-missing
-	pipenv run coverage html
-
 
 ci_test:
 	pipenv run flake8 .
+	coverage erase
+	coverage run manage.py test --verbosity 2
+	coverage report --fail-under=70 --show-missing
+	coverage html

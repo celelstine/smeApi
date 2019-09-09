@@ -1,6 +1,6 @@
 [run]
 branch=True
-source=main,
+source=smeApi_app,smeApi_auth
 omit=
     *migrations*
     *admin.py*
